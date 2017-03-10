@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1">
+		<meta name="renderer" content="webkit">
+		<!--国产浏览器高速模式-->
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="author" content="Yao Longfei" />
+		<!-- 作者 -->
+		<meta name="revised" content="Yao.v1, 2016/7/11" />
+		<!-- 定义页面的最新版本 -->
+		<meta name="description" content="{$SEO['description']}" />
+		<!-- 网站简介 -->
+		<meta name="keywords" content="{$SEO['keyword']}" />
+		<!-- 搜索关键字 -->
+		<title>{if isset($SEO['title']) && !empty($SEO['title'])}{$SEO['title']}{/if}{$SEO['site_title']}</title>
+		<!-- 基础样式文件 开始 -->
+		<link href="{WEB_PATH}statics/ningxiagongan/css/bootstrap.css" rel="stylesheet" type="text/css">
+		<link href="{WEB_PATH}statics/ningxiagongan/css/base.css" rel="stylesheet" type="text/css">
+		<link href="{WEB_PATH}statics/ningxiagongan/css/index.css" rel="stylesheet" type="text/css">
+		<!-- 基础样式文件结束 -->
+		<!-- 基础JS文件 开始 -->
+		<script type="text/javascript" src="{WEB_PATH}statics/ningxiagongan/js/jquery-1.10.2.min.js"></script>
+		<script type="text/javascript" src="{WEB_PATH}statics/ningxiagongan/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="{WEB_PATH}statics/ningxiagongan/js/base.js"></script>
+		<script type="text/javascript" src="{WEB_PATH}statics/ningxiagongan/js/index.js"></script>
+		<!-- 轮播图 开始 -->
+		<script type="text/javascript" src="{WEB_PATH}statics/ningxiagongan/js/lb_jcfc.js"></script>
+		<link href="{WEB_PATH}statics/ningxiagongan/css/lbt1.css" rel="stylesheet" type="text/css">
+		<script type="text/javascript" src="{WEB_PATH}statics/ningxiagongan/js/lbt1.js"></script>
+		<!-- 基础JS文件 结束 -->
+	</head>
+	<body>
+		<!-- main 开始 -->
+		<div class="main">
+			<div class="main_box">
+
+				<!-- logo 开始 -->
+				<div class="logo"></div>
+				<!-- logo 结束 -->
+	
+				<!-- banner 开始 -->
+				<div class="banner">
+				{pc:content action="category" catid="0"}
+				{php $len = count($data)}
+
+					<ul>
+					{loop $data $v}
+						{if $n != $len}
+						<li class="right_border"><a href="{$v[url]}">{$v[catname]}</a></li>
+						{else}	
+						<li><a href="{$v[url]}">{$v[catname]}</a></li>
+						{/if}
+					{/loop}
+					</ul>
+				{/pc}
+				</div>
+				<!-- banner 结束 -->
